@@ -51,7 +51,29 @@ def writeLog(fileName):
     output = subprocess.run("ps axo rss,comm,pid | sort -n | tail -n 30 | sort -rn", shell=True, stdout=subprocess.PIPE, 
                         universal_newlines=True)
     with open(fileName, mode='a+') as out:
-        out.write(output.stdout)
+        all_lines =output.stdout
+        records = all_lines.split('\n')
+        l1 = 'Memory'.rjust(8)
+        l2 = 'Task'.ljust(20)
+        l3 = 'PID'.rjust(10)
+        out.write(l1+ '  ' +l2+l3)
+        out.write('\n')
+        l1 = '------'.rjust(8)
+        l2 = '----------------------'.ljust(20)
+        l3 = '-----'.rjust(8)
+        out.write(l1+ '  ' +l2+l3)
+        out.write('\n')
+        for index in range(len(records)):
+           line = records[index]  
+           if line != '':
+              l = line.split()
+              l1 = l[0].strip().rjust(8)
+              l2 = l[1].strip().ljust(20)
+              l3 = l[2].strip().rjust(10)
+              out.write(l1+ '  ' +l2+l3)
+              out.write('\n')
+           else:
+              break
     out.close()    
     
 def writeMemoryLog(fileName):
