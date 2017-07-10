@@ -1,0 +1,15 @@
+[Unit]
+   Description= Memory monitor
+   After=network.target network-online.target
+   Wants=network-online.target
+[Service]
+   ExecStart=/var/monitor/memory_monitor.py
+   WorkingDirectory=/var/monitor
+   StandardOutput=null
+   Restart=always
+   RestartSec= 120
+   Restart=alwais
+   SystemlogIdentifier=memory_monitor
+   KillMode=control-group
+   WantedBy=multi-user.target
+   Alias=memory_monitor.service
