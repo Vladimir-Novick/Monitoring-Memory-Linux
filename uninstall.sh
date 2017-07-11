@@ -27,9 +27,12 @@ echo  ""
 echo -n "Do you want to REMOVE this service (y/n)? "
 read answer
 if echo "$answer" | grep -iq "^y" ;then
-sudo service memory_monitor stop
 sudo systemctl disable memory_monitor.service
+sudo systemctl daemon-reload
+sleep 5
+sudo service memory_monitor stop
 sudo rm -rf /var/monitor/memory_monitor.py
 sudo rm -rf /var/monitor/memory.log
 sudo rm -rf /lib/systemd/system/memory_monitor.service
+
 fi
