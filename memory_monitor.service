@@ -6,10 +6,11 @@
    ExecStart=/var/monitor/memory_monitor.py
    WorkingDirectory=/var/monitor
    StandardOutput=null
-   Restart=always
+   Restart=on-failure
    RestartSec= 120
-   Restart=alwais
-   SystemlogIdentifier=memory_monitor
    KillMode=control-group
+
+ 
+[Install]
    WantedBy=multi-user.target
    Alias=memory_monitor.service

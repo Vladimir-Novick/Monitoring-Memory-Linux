@@ -17,23 +17,22 @@
 # THE SOFTWARE.
 #
 echo  ""
-echo  "               MEMORY MONITOR SERVICE"
+echo  "            MEMORY MONITOR SERVICE"
 echo  ""
 echo  " This is a simple and free tool for monitoring system memory."
 echo  ""
 echo  " Service provide periodical check max using memory and create log file"
-echo  "                File: /var/monitor/memory.log"
+echo  "                "
 echo  ""
-echo -n "Do you want to INSTALL this service (y/n)? "
+echo -n "Do you want to REMOVE this service (y/n)? "
 read answer
 if echo "$answer" | grep -iq "^y" ;then
-sudo mkdir -p /var/monitor
-sudo chmod g+s /var/monitor
-sudo cp -rf memory_monitor.py /var/monitor/memory_monitor.py
-sudo chmod a+x /var/monitor/memory_monitor.py
-sudo cp -rf memory_monitor.service /lib/systemd/system/memory_monitor.service
+sudo systemctl disable memory_monitor.service
 sudo systemctl daemon-reload
-sudo  systemctl enable /lib/systemd/system/memory_monitor.service
-sudo service memory_monitor start
-service memory_monitor status
+sleep 5
+sudo service memory_monitor stop
+sudo rm -rf /var/monitor/memory_monitor.py
+sudo rm -rf /var/monitor/memory.log
+sudo rm -rf /lib/systemd/system/memory_monitor.service
+
 fi
