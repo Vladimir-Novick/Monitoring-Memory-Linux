@@ -19,6 +19,7 @@
 echo ""
 echo "                 MEMORY MONITOR SERVICE"
 echo "                 ----------------------"
+echo "                 memory_monitor.service"
 echo ""
 echo  " Service provide periodical check max using memory and create log file"
 echo  "                File: /var/monitor/memory.log"

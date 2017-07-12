@@ -3,6 +3,8 @@
 # Author: Vladimir Novick , <vlad.novick@gmail.com>
 #
 #                          https://www.linkedin.com/in/vladimirnovick
+#
+#                  https://github.com/Vladimir-Novick/Monitoring-Memory-Usage
 #                      
 # Date: 11.07.2017
 # Purpose: check max using memory and create log file
