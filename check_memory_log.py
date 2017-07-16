@@ -82,6 +82,7 @@ def writeMemoryLog(fileName):
         for line in runProcess('free -m'.split()):
            out.write(line)
            out.write('\n')
+        out.write("_____________________________________________________________")
         out.close()
 
 

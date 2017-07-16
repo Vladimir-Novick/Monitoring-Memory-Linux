@@ -97,6 +97,7 @@ def writeMemoryLog(fileName):
         out.write(datetime.datetime.now().strftime("%I:%M%p on %B %d, %Y\n\n"))
         for line in runProcess('free -m'.split()):
            out.write(line)
+        out.write("_____________________________________________________________")
         out.close()
 
 def f():
